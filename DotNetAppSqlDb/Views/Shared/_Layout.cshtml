@@ -22,16 +22,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-        <li><a asp-area="" asp-controller="Movies" asp-action="NewMovies">NewMovies</a></li>*@
-                    @*<li>@Html.ActionLink("Compacts", "Index", "Movies", new { area = "" })</li>
-        <li>@Html.ActionLink("Crossovers", "Index", "Crossovers", new { area = "" })</li>
-        <li>@Html.ActionLink("Sedans", "Index", "Sedans", new { area = "" })</li>*@
-                    @Html.ActionLink("Compacts", "Index", "Compacts", new { area = "" }, new { @class = "navbar-brand" })
+                    <li>@Html.ActionLink("Compacts", "Index", "Compacts")</li>
+                    <li>@Html.ActionLink("Crossovers", "Index", "Crossovers")</li>
+                    <li>@Html.ActionLink("Sedans", "Index", "Sedans")</li>
+                    @*@Html.ActionLink("Compacts", "Index", "Compacts", new { area = "" }, new { @class = "navbar-brand" })
                     @Html.ActionLink("Crossovers", "Index", "Crossovers", new { area = "" }, new { @class = "navbar-brand" })
-                    @Html.ActionLink("Sedans", "Index", "Sedans", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Sedans", "Index", "Sedans", new { area = "" }, new { @class = "navbar-brand"*@ })
                 </ul>
             </div>
 
