@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Hyundai Dealership</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Hyundai Home", "Index", "Todos", new { area = "" }, new { @class = "navbar-brand" })
+                @*<a asp-area="" asp-controller="Movies" asp-action="Index" class="navbar-brand">Hyundai Home</a>*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+        <li><a asp-area="" asp-controller="Movies" asp-action="NewMovies">NewMovies</a></li>*@
+                    @*<li>@Html.ActionLink("Compacts", "Index", "Movies", new { area = "" })</li>
+        <li>@Html.ActionLink("Crossovers", "Index", "Crossovers", new { area = "" })</li>
+        <li>@Html.ActionLink("Sedans", "Index", "Sedans", new { area = "" })</li>*@
+                    @Html.ActionLink("Compacts", "Index", "Compacts", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Crossovers", "Index", "Crossovers", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Sedans", "Index", "Sedans", new { area = "" }, new { @class = "navbar-brand" })
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My Hyundai Dealership ASP.NET Application</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

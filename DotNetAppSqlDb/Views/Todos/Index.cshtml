@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DotNetAppSqlDb.Models.Todo>
+
+@{
+    ViewBag.Title = "Hyundai";
+}
+<div style="text-align:center;">
+    <h2>Hyundai</h2>
+    <h4>Please select a category below</h4>
+</div>
+
+
+
+<div id="wrapper" style="display:flex; height:auto">
+    <div id="c3" style="flex-grow: 1;">
+        <img src="https://www.hyundaiusa.com/redesign-upgrade/images/navigation/vehicles/2018/2018-accent-v2.png" alt="compact" />
+        @Html.ActionLink("Compacts", "Index", "Compacts", new { area = "" }, new { @class = "navbar-brand" })
+        
+    </div>
+    <div id="c1" style="flex-grow: 1;">
+        <img src="https://www.hyundaiusa.com/redesign-upgrade/images/navigation/vehicles/2018/2018-tucson.png" alt="xover" />
+        @Html.ActionLink("Crossovers", "Index", "Crossovers", new { area = "" }, new { @class = "navbar-brand" })
+    </div>
+    <div id="c2" style="flex-grow: 1;">
+        <img src="https://www.hyundaiusa.com/redesign-upgrade/images/navigation/vehicles/2018/2018-elantra.png" alt="sedan" />
+        
+        @Html.ActionLink("Sedans", "Index", "Sedans", new { area = "" }, new { @class = "navbar-brand" })
+    </div>
+
+</div>
+
+
+
+
+<table class="table"></table>
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Done)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Done)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
