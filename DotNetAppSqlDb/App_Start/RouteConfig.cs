@@ -18,6 +18,13 @@ namespace DotNetAppSqlDb
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Todos", action = "Index", id = UrlParameter.Optional }
             );
+
+            //routes.MapRoute(
+            //    name: "Hello",
+            //    url: "{controller}/{action}/{name}/{id}"
+            //);
+
+
         }
     }
 }

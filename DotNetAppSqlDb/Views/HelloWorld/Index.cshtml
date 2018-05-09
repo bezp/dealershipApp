@@ -6,12 +6,22 @@
         therefore you can comment out
 *@
 
+@*@{
+        ViewBag.Title = "Movie List";
+    }
+
+    <h2>My Movie List</h2>
+
+    <p>Hello from our View Template!</p>*@
+
 @{
-    ViewBag.Title = "Movie List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>My Movie List</h2>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
 
 <p>Hello from our View Template!</p>
-
-
