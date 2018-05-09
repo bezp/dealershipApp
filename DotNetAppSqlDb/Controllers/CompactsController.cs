@@ -19,28 +19,6 @@ namespace DotNetAppSqlDb.Controllers
         private MyDatabaseContext db = new MyDatabaseContext();
 
 
-
-        //public CompactsController(MyDatabaseContext dbx)
-        //{
-        //    db = dbx;
-        //}
-        ////change action result to IEnumerable???????/
-        //public async Task<ActionResult> Index(string searchString)
-        //{
-        //    var Compacts = from m in db.Compacts
-        //                 select m;
-
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        Compacts = Compacts.Where(s => s.Model.Contains(searchString));
-        //    }
-
-        //    return View(await Compacts.ToListAsync());
-        //}
-
-
-
-
         // GET: Compacts
         //public ActionResult Index()
         //{

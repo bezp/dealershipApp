@@ -8,7 +8,19 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
+    @*@using (Html.BeginForm())*@
+    @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
+    {
+<p>
+    Genre: @Html.DropDownList("movieGenre", "All")
+    Title: @Html.TextBox("SearchString")
+    <input type="submit" value="Filter" />
 </p>
+        }
+</p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -26,27 +38,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
 
-        </td>
-    </tr>
-}
+            </td>
+        </tr>
+    }
 
 </table>
