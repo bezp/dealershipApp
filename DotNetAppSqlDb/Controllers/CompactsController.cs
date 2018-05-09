@@ -38,11 +38,28 @@ namespace DotNetAppSqlDb.Controllers
         //    return View(await Compacts.ToListAsync());
         //}
 
+
+
+
         // GET: Compacts
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    return View(db.Compacts.ToList());
+        //}
+
+        public ActionResult Index(string searchString)
         {
-            return View(db.Compacts.ToList());
+            var Compacts = from m in db.Compacts
+                           select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Compacts = Compacts.Where(s => s.Model.Contains(searchString));
+            }
+
+            return View(Compacts);
         }
+
 
         // GET: Compacts/Details/5
         public ActionResult Details(int? id)

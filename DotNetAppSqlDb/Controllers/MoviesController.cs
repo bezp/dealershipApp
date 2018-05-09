@@ -14,11 +14,27 @@ namespace DotNetAppSqlDb.Controllers
     {
         private MyDatabaseContext db = new MyDatabaseContext();
 
-        // GET: Movies
-        public ActionResult Index()
+
+        public ActionResult Index(string searchString)
         {
-            return View(db.Movies.ToList());
+            var movies = from m in db.Movies
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+
+            return View(movies);
         }
+
+        // GET: Movies
+        //public ActionResult Index()
+        //{
+        //    return View(db.Movies.ToList());
+        //}
+
+
 
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
