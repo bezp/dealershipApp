@@ -15,9 +15,17 @@ namespace DotNetAppSqlDb.Controllers
         private MyDatabaseContext db = new MyDatabaseContext();
 
         // GET: Crossovers
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Crossovers.ToList());
+            var Crossovers = from m in db.Crossovers
+                           select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Crossovers = Crossovers.Where(s => s.Model.Contains(searchString));
+            }
+
+            return View(Crossovers);
         }
 
         // GET: Crossovers/Details/5

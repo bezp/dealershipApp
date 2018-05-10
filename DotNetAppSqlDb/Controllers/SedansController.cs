@@ -15,9 +15,17 @@ namespace DotNetAppSqlDb.Controllers
         private MyDatabaseContext db = new MyDatabaseContext();
 
         // GET: Sedans
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Sedans.ToList());
+            var Sedans = from m in db.Sedans
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Sedans = Sedans.Where(s => s.Model.Contains(searchString));
+            }
+
+            return View(Sedans);
         }
 
         // GET: Sedans/Details/5
