@@ -12,12 +12,12 @@
 
     @using (Html.BeginForm("Index", "Compacts", FormMethod.Get))
     {
-        <p>
-            Title: @Html.TextBox("SearchString")
-            <input type="submit" value="Filter" />
-        </p>
-    }
-</p>
+    <p>
+        Model Name: @Html.TextBox("SearchString")
+        <input type="submit" value="Find" />
+    </p>
+}
+    </p>
 
     <table class="table">
         <tr>

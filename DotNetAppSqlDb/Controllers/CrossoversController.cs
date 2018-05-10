@@ -15,14 +15,30 @@ namespace DotNetAppSqlDb.Controllers
         private MyDatabaseContext db = new MyDatabaseContext();
 
         // GET: Crossovers
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString, string horsePower)
         {
+            var HPList = new List<int>();
+            var HPQuery = from x in db.Crossovers
+                          orderby x.Horsepower
+                          select x.Horsepower;
+
+            HPList.AddRange(HPQuery.Distinct());
+            ViewBag.horsePower = new SelectList(HPList);
+
             var Crossovers = from m in db.Crossovers
                            select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 Crossovers = Crossovers.Where(s => s.Model.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(horsePower))
+            {
+                int val = 0;
+                Int32.TryParse(horsePower, out val);
+
+                Crossovers = Crossovers.Where(s => s.Horsepower == val);
             }
 
             return View(Crossovers);
