@@ -29,6 +29,7 @@ namespace DotNetAppSqlDb.Controllers
         {
             ViewBag.ModelSortParm = String.IsNullOrEmpty(sortOrder) ? "Model_desc" : "";
             ViewBag.MSRPSortParm = sortOrder == "MSRP" ? "MSRP_desc" : "MSRP";
+            ViewBag.HorsepowerSortParm = sortOrder == "Horsepower" ? "Horsepower_desc" : "Horsepower";
             var Compacts = from m in db.Compacts
                            select m;
 
@@ -47,6 +48,12 @@ namespace DotNetAppSqlDb.Controllers
                     break;
                 case "MSRP_desc":
                     Compacts = Compacts.OrderByDescending(s => s.MSRP);
+                    break;
+                case "Horsepower":
+                    Compacts = Compacts.OrderBy(s => s.Horsepower);
+                    break;
+                case "Horsepower_desc":
+                    Compacts = Compacts.OrderByDescending(s => s.Horsepower);
                     break;
                 default:
                     Compacts = Compacts.OrderBy(s => s.Model);
