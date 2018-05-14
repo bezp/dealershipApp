@@ -25,14 +25,32 @@ namespace DotNetAppSqlDb.Controllers
         //    return View(db.Compacts.ToList());
         //}
 
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString, string sortOrder)
         {
+            ViewBag.ModelSortParm = String.IsNullOrEmpty(sortOrder) ? "Model_desc" : "";
+            ViewBag.MSRPSortParm = sortOrder == "MSRP" ? "MSRP_desc" : "MSRP";
             var Compacts = from m in db.Compacts
                            select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 Compacts = Compacts.Where(s => s.Model.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "Model_desc":
+                    Compacts = Compacts.OrderByDescending(s => s.Model);
+                    break;
+                case "MSRP":
+                    Compacts = Compacts.OrderBy(s => s.MSRP);
+                    break;
+                case "MSRP_desc":
+                    Compacts = Compacts.OrderByDescending(s => s.MSRP);
+                    break;
+                default:
+                    Compacts = Compacts.OrderBy(s => s.Model);
+                    break;
             }
 
             return View(Compacts);
